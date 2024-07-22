@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from 'styled-components'
 import SearchBar from '../components/SearchBar';
 import ImageCard from '../components/ImageCard';
-import { GetPosts } from "../api";
-import { CircularProgress } from "@mui/material";
+
 //Styled Components
 
 const Container = styled.div`

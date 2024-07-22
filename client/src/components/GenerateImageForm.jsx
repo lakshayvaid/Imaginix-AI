@@ -4,8 +4,8 @@ import Button from './button'
 import TextInput from './TextInput';
 import { AutoAwesome , CreateRounded } from '@mui/icons-material';
 import { GenerateAIImage } from '../api/index.js';
-import { useState } from 'react';
-import {useNavigate} from "react-router-dom";
+// import { useState } from 'react';
+// import {useNavigate} from "react-router-dom";
 
 
 //styled components
@@ -58,8 +58,8 @@ const Actions = styled.div`
 
 //Main Component
 
-const navigate=useNavigate();
-const[error,setError]=useState("");
+// const navigate=useNavigate();
+// const[error,setError]=useState("");
 
 const GenerateImageForm = (
   {
@@ -80,23 +80,14 @@ const GenerateImageForm = (
       setGenerateImageLoading(false);
      }).catch((error)=>{
            console.log(error);
-           setGenerateImageLoading(false);
+          //  setGenerateImageLoading(false);
      });
      
   };
 
-  const createPostFun =async()=>{
+  const createPostFun =()=>{
     setCreatePostLoading(true);
-    setError("");
-    await createPostFun(post)
-      .then((res) => {
-        navigate("/");
-        setCreatePostLoading(false);
-      })
-      .catch((error) => {
-        setError(error?.response?.data?.message);
-        setCreatePostLoading(false);
-      });
+ 
   };
   return (
    <Form>
@@ -121,7 +112,7 @@ const GenerateImageForm = (
       handelChange={(e)=>setPost({...post,prompt: e.target.value})}
       />
 
-      {error && <div style={{ color: "red" }}>{error}</div>}
+      
       ** You can post the AI generated image to the Community **
     </Body>
 
